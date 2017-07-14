@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <h4><a href="#"> GitHub Profile Viewer</a></h4>
+            <div class="profile-photo" *ngIf="isDataAvailable">
+                <img class="img-circle" src="{{gitHubProfile.avatar_url}}" alt="{{gitHubProfile.name}}">
+            </div>
+            <div class="profile-name" *ngIf="isDataAvailable">
+                <h4>{{gitHubProfile.name}}</h4>
+            </div>
+            <div class="profile-details" *ngIf="isDataAvailable">
+                <h4><span class="fa fa-map-marker" aria-hidden="true"></span>{{gitHubProfile.location}}</h4>
+            </div>
+        </div>
+
+        <div class="col-sm-9 page-content">
+            <div class="panel mui-panel">
+                <div class="table-group" *ngIf="isRepositoryDetailsAvailable">
+                    <h3 class="table-title">{{repositoryDetails.name}}</h3>
+                    <div class="table-search pull-right">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input type="text" placeholder="Search..." [ngModel]="searchBox" (ngModelChange)="searchTextChanged($event)">
+                    </div>
+                    <table class="repo-table" *ngIf="isCommitDetailsAvailable">
+                        <thead>
+                            <tr>
+                                <th>Author</th>
+                                <th>Email</th>
+                                <th>Committer</th>
+                                <th>Email</th>
+                                <th>Commit Date</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let element of currentPageItems">
+                                <td>{{element.commit.author.name}}</td>
+                                <td>{{element.commit.author.email}}</td>
+                                <td>{{element.commit.committer.name}}</td>
+                                <td>{{element.commit.committer.email}}</td>
+                                <td>{{element.commit.committer.date}}</td>
+                                <td>{{element.commit.message}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-footer" role="toolbar">
+                        <div class="pagination-label">
+                            <label>Page {{currentPageNumber}} / {{totalPages}}</label>
+                        </div>
+                        <div class="pagination-numbers pull-right">
+                            <ul class="pagination">
+                                <li [ngClass] = "{'disabled': (currentPageNumber === 1 || totalPages === 0)}">
+                                    <a (click)="previousPage()">Previous</a>
+                                </li>
+                                <li *ngFor="let page of pageNumbersInPaginationBar" [ngClass]="{'active': (currentPageNumber === page)}">
+                                    <a (click)="setPage(page)">{{page}}</a>
+                                </li>
+                                <li [ngClass] = "{'disabled': (currentPageNumber === totalPages || totalPages === 0)}">
+                                    <a (click)="nextPage()">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mui-panel chart">
+                <canvas *ngIf="isCommitDetailsAvailable" baseChart
+                        [data] = "barChartData"
+                        [labels] = "barChartLabels"
+                        [options] = "barChartOptions"
+                        [legend] = "barChartLegend"
+                        [chartType] = "barChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

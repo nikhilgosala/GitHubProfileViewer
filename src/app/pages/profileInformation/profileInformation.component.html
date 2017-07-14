@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4><a href="#"> GitHub Profile Viewer</a></h4>
+      <div class="profile-photo" *ngIf="isDataAvailable">
+          <img class="img-circle" src="{{gitHubProfile.avatar_url}}" alt="{{gitHubProfile.name}}">
+      </div>
+      <div class="profile-name" *ngIf="isDataAvailable">
+          <h4>{{gitHubProfile.name}}</h4>
+      </div>
+      <div class="profile-details" *ngIf="isDataAvailable">
+          <h4><span class="fa fa-map-marker" aria-hidden="true"></span>{{gitHubProfile.location}}</h4>
+      </div>
+    </div>
+
+    <div class="col-sm-9 page-content">
+        <div class="panel mui-panel">
+            <div class="table-group">
+                <h3 class="table-title">Repositories</h3>
+                <div class="table-search pull-right">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search..." [ngModel]="searchBox" (ngModelChange)="searchTextChanged($event)">
+                </div>
+                <table class="repo-table" *ngIf="isFilteredRepoDataAvailable">
+                    <thead>
+                        <tr>
+                            <th>Repo Name</th>
+                            <th>Language</th>
+                            <th>Description</th>
+                            <th>Forks</th>
+                            <th>Creation Date</th>
+                            <th>Updation Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let repo of currentPageItems">
+                            <td>{{repo.name}}</td>
+                            <td>{{repo.language}}</td>
+                            <td>{{repo.description}}</td>
+                            <td>{{repo.forks_count}}</td>
+                            <td>{{repo.created_at}}</td>
+                            <td>{{repo.updated_at}}</td>
+                            <td>
+                                <a (click)="openRepo([repo.url])">
+                                    <span class="fa fa-external-link" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-footer" role="toolbar">
+                    <div class="pagination-label">
+                        <label>Page {{currentPageNumber}} / {{totalPages}}</label>
+                    </div>
+                    <div class="pagination-numbers pull-right">
+                        <ul class="pagination">
+                            <li [ngClass] = "{'disabled': (currentPageNumber === 1 || totalPages === 0)}">
+                                <a (click)="previousPage()">Previous</a>
+                            </li>
+                            <li *ngFor="let page of pageNumbersInPaginationBar" [ngClass]="{'active': (currentPageNumber === page)}">
+                                <a (click)="setPage(page)">{{page}}</a>
+                            </li>
+                            <li [ngClass] = "{'disabled': (currentPageNumber === totalPages || totalPages === 0)}">
+                                <a (click)="nextPage()">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

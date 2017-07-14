@@ -1,0 +1,155 @@
+.sidenav
+{
+    border-right: 2px solid #1caf9a;
+    min-height: 100vh;
+    height: 100%;
+    background: #1b1e24;
+}
+.sidenav > h4
+{
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 1px solid #1caf9a;
+    line-height: 50px;
+    color: #1caf9a;
+}
+.sidenav > h4 > a
+{
+    color: #1caf9a;
+    text-decoration: none;
+}
+.profile-photo > img
+{
+    max-height: 200px;
+    max-width: 200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 3px solid #1caf9a;
+}
+.profile-name > h4
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #1caf9a;
+}
+.profile-details > h4
+{
+    text-align: center;
+    color: #1caf9a;
+}
+.profile-details > h4 > span
+{
+    padding-right: 5px;
+}
+
+.panel
+{
+    margin-top: 20px;
+}
+
+/*Repo Table*/
+.table-group
+{
+    float: left;
+}
+.table-group > h3
+{
+    float: left;
+    margin: 0;
+    line-height: 30px;
+}
+.page-content
+{
+    background: #D7D7C8;
+    min-height: 100vh;
+}
+.table-search
+{
+    margin-bottom: 10px;
+    float: right;
+}
+.table-search > i
+{
+    margin-right: 5px;
+}
+.table-search > input
+{
+    line-height: 30px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    padding-left: 5px;
+}
+.repo-table
+{
+    min-width: 100%;
+    left: 0;
+}
+.repo-table > thead > tr > th
+{
+    height: 40px;
+    background: #C5C5C5;
+    color: #010108;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #CCCCCC;
+    padding: 0 10px;
+    text-align: center;
+}
+.repo-table > tbody > tr > td
+{
+    height: 40px;
+    background: #FFFFFF;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 500;
+    border-bottom: 1px solid #CCCCCC;
+    padding: 0 10px;
+    text-align: center;
+}
+.repo-table > tbody > tr > td > a > span
+{
+    color: black;
+}
+.table-footer
+{
+    display: block;
+}
+.table-footer > .pagination-label
+{
+    float: left;
+    margin-top: 20px;
+    
+}
+.table-footer > .pagination-label > label
+{
+    line-height: 30px;
+    height: 30px;
+}
+.table-footer > .pagination-numbers
+{
+    float: right;
+}
+.table-footer > .pagination-numbers > ul > li > a
+{
+    margin: 2px;
+    color: black;
+    border-radius: 3px;
+}
+.table-footer > .pagination-numbers > ul > li.active > a
+{
+    margin: 2px;
+    color: white;
+    background: black;
+}
+.table-footer > .pagination-numbers > ul > li.disabled > a
+{
+    margin: 2px;
+    color: gray;
+}

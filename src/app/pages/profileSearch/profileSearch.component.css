@@ -1,0 +1,55 @@
+.login-container {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background: #1b1e24;
+}
+.login-container .login-box {
+  width: 400px;
+  margin: auto;
+  padding-top: 100px;
+}
+.login-container .login-box .login-body {
+  width: 100%;
+  float: left;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+.login-container .login-box .login-body .login-title {
+  color: #FFF;
+  font-size: 19px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.login-container .login-box .login-body .form-control {
+  border: 0px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  color: #CCC;
+  line-height: 20px;
+  height: auto;
+}
+.login-container .login-box .login-body .btn {
+  margin: 10px 90px 0;
+  display: block;
+  background: #1b1e24;
+  border: 2px solid #CCCCCC;
+  color: #CCCCCC;
+
+}
+.login-container .login-box .login-body .btn:hover {
+    border: 2px solid #1caf9a;
+    color: #1caf9a;
+    background: #1b1e24;
+}
+.error-message
+{
+    color: #E90011;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}

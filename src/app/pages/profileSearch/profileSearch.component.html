@@ -1,0 +1,28 @@
+<!--<div class="background">
+    <div class="card">
+        <div class="profile-name-input">
+            <span></span>
+            <input type="text" name="userName" placeholder="Enter GitHub username" [(ngModel)]="userName">
+            <button type="button" (click)=sendData()>View GitHub Details</button>
+        </div>
+    </div>
+</div>-->
+
+<div class="login-container">
+            <div class="login-box animated fadeInDown">
+                    <div class="login-body">
+                        <div class="login-title"><strong>Welcome</strong>, Enter the GitHub username</div>
+                        <div class="error-message" *ngIf="isError">Please enter a valid username.</div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Enter GitHub username" [(ngModel)]="userName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <button (click)="sendData()" class="btn btn-info btn-block">Search User</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+</div>
